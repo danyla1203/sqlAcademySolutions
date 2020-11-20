@@ -1,0 +1,10 @@
+#24
+SELECT FamilyMembers.member_name, SUM(payments1.amount * payments1.unit_price) as costs
+FROM
+ (
+    SELECT * From Payments
+    WHERE Payments.date BETWEEN "2005-06-01T00:00:00.000Z" and "2005-07-01T00:00:00.000Z"
+ ) as payments1
+JOIN FamilyMembers
+ON FamilyMembers.member_id = payments1.family_member
+GROUP BY FamilyMembers.member_id

@@ -1,0 +1,7 @@
+!!!#26
+SELECT DISTINCT GoodTypes.good_type_name From Goods
+JOIN Payments
+ON Goods.good_id = Payments.good
+JOIN GoodTypes
+ON GoodTypes.good_type_id = Goods.type
+WHERE Payments.date NOT BETWEEN "2005-01-01T00:00:00.000" and "2006-01-01T00:00:00.000"

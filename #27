@@ -1,0 +1,12 @@
+#27
+SELECT GoodTypes.good_type_name, SUM(payments1.amount * payments1.unit_price) as costs
+FROM 
+(
+		SELECT * FROM Payments
+		WHERE Payments.date BETWEEN "2005-01-01T00:00:00.000" and "2006-01-01T00:00:00.000"
+) as payments1
+JOIN Goods
+ON payments1.good = Goods.good_id
+JOIN GoodTypes
+ON Goods.type = GoodTypes.good_type_id
+GROUP BY GoodTypes.good_type_id

@@ -1,0 +1,15 @@
+#23
+SELECT Goods.good_name, unit_price FROM Payments
+JOIN Goods
+ON Goods.good_id = Payments.good
+JOIN GoodTypes
+ON Goods.good_id = GoodTypes.good_type_id
+WHERE
+ Payments.unit_price = (
+     SELECT MAX(Payments.unit_price) FROM Payments
+     JOIN Goods
+     ON Goods.good_id = Payments.good
+     JOIN GoodTypes
+     ON GoodTypes.good_type_id = Goods.type
+     WHERE GoodTypes.good_type_name = "delicacies"
+ ) 
