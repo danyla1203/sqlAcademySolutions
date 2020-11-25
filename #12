@@ -1,0 +1,5 @@
+#12
+SELECT Trip.id as trip, COUNT(*) as count FROM Trip
+JOIN Pass_in_trip
+ON Trip.id = Pass_in_trip.trip
+GROUP BY Trip.id 

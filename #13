@@ -1,0 +1,7 @@
+#13
+SELECT name 
+FROM (
+    SELECT DISTINCT name, COUNT(*) as count  FROM Passenger
+    GROUP BY name
+    ) as counts
+WHERE counts.count > 1
