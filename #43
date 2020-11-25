@@ -1,0 +1,8 @@
+#43
+SELECT last_name FROM Teacher
+JOIN Schedule
+On Teacher.id = Schedule.teacher
+JOIN Subject
+ON Subject.id = Schedule.subject
+WHERE Subject.name = "Physical Culture"
+ORDER BY last_name

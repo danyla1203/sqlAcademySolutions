@@ -1,0 +1,7 @@
+#37
+SELECT YEAR(CURRENT_TIMESTAMP) - EXTRACT(YEAR FROM MAX(birthday)) - 1 as year
+FROM (
+    SELECT Student.id, Student.birthday FROM Student_in_class
+    JOIN Student
+    ON Student_in_class.student = Student.id
+    ) as stud

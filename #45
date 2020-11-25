@@ -1,0 +1,13 @@
+#45
+SELECT countTb1.classroom
+FROM (
+    SELECT COUNT(*) as count, Schedule.classroom FROM Schedule
+    GROUP BY Schedule.classroom
+    ) as countTb1
+WHERE
+ countTb1.count = (
+                SELECT MAX(countTb.count)
+                FROM (
+                    SELECT COUNT(*) as count, Schedule.classroom FROM Schedule
+                    GROUP BY Schedule.classroom
+                ) as countTb)

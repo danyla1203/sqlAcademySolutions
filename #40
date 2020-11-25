@@ -1,0 +1,7 @@
+#40
+SELECT Subject.name as subjects FROM Schedule
+JOIN Teacher
+ON Teacher.id = Schedule.teacher
+JOIN Subject
+ON Subject.id = Schedule.subject
+WHERE Teacher.last_name = "Romashkin"

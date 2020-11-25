@@ -1,0 +1,3 @@
+#52
+INSERT INTO GoodTypes
+VALUES (10, "auto")
