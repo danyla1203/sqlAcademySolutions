@@ -1,0 +1,6 @@
+#48
+SELECT Class.name, COUNT(*) as count FROM Student_in_class
+JOIN Class
+ON Class.id = Student_in_class.class
+GROUP BY class
+ORDER BY count DESC

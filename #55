@@ -1,0 +1,15 @@
+#55
+DELETE FROM Company
+WHERE Company.id IN (
+	SELECT t1.company
+	FROM 
+	    (
+	    SELECT Trip.company, COUNT(*) as count FROM Trip
+	    GROUP BY Trip.company
+	    ) as t1
+	WHERE
+	 t1.count = (
+	    SELECT MIN(count) as min FROM (SELECT Trip.company, COUNT(*) as count FROM Trip
+	    GROUP BY Trip.company) as t1
+	 )
+)

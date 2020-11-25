@@ -1,0 +1,7 @@
+#46
+SELECT DISTINCT  Class.name FROM Schedule
+JOIN Class
+ON Class.id = Schedule.class
+JOIN Teacher
+ON Teacher.id = Schedule.teacher
+WHERE Teacher.last_name = "Krauze"

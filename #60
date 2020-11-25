@@ -1,0 +1,11 @@
+#60
+SELECT teacher
+FROM (
+	SELECT tc.teacher, COUNT(*) as count
+	FROM (
+		SELECT DISTINCT  teacher, class FROM Schedule
+		WHERE Schedule.class IN (SELECT id FROM Class WHERE name LIKE "11%")
+		) as tc
+	GROUP BY tc.teacher
+	) as tc2
+WHERE count = 2
