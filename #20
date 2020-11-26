@@ -1,0 +1,13 @@
+#20
+SELECT status, member_name, SUM(amount * unit_price) as costs
+FROM (
+SELECT FamilyMembers.status, FamilyMembers.member_name, amount, unit_price FROM Payments
+JOIN FamilyMembers
+ON Payments.family_member = FamilyMembers.member_id
+JOIN Goods
+ON Payments.good = Goods.good_id
+JOIN GoodTypes
+ON Goods.type = GoodTypes.good_type_id
+WHERE GoodTypes.good_type_name = "entertainment"
+) as t1
+GROUP BY member_name
