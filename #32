@@ -1,0 +1,4 @@
+#32
+SELECT FLOOR(AVG(t1.age)) as age
+FROM (SELECT (SUBSTRING(CURRENT_TIMESTAMP, 1, 4) - SUBSTRING(birthday, 1, 4)) as age 
+FROM FamilyMembers) as t1
